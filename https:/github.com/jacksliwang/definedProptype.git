@@ -1,0 +1,42 @@
+<!--
+ * @Author: wangxt
+ * @Date: 2020-03-04 10:37:44
+ * @LastEditors: wangxt
+ * @LastEditTime: 2020-03-05 11:49:56
+ * @Description: 
+ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+  var vm = {}
+
+  var obj = {
+    name: "wangxt",
+    age: 25
+  }
+  for (let value in obj) {
+    (function (value) {
+      Object.defineProperty(vm, value, {
+        get: function () {
+          return obj[value]
+        },
+        set: function (newValue) {
+          obj[value] = newValue
+        }
+      })
+    })(value)
+  }
+</script>
+
+</html>
